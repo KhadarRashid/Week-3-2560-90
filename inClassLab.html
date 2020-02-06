@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lab Page</title>
+</head>
+
+<body>
+  <p>Enter some text to add to the list</p>
+  <input type="text" id="text" maxlength="50">
+  <button id="add">Add</button>
+  <button id="clear">Clear</button>
+
+  <ul id="list">
+
+  </ul>
+
+<script>
+    let counter = 0
+    let inputEl = document.querySelector("#text")
+    let addButtonEl = document.querySelector("#add")
+    let listEl = document.querySelector("#list")
+    let clearButton = document.querySelector("#clear")
+
+  
+
+    addButtonEl.addEventListener("click", function(){
+    if( inputEl.value.length == 0 ){
+        return
+    }
+    else if (inputEl.value == " "){
+        alert("Please enter something first")
+    return
+    }
+    //limit the charicter count
+    else if ( inputEl.value.length == 50) {
+        alert('please use less then 50 charicters')
+    return
+    }
+
+    else if (counter > 10){
+        alert("Please clear the list first, the limit is 10")
+    return
+
+    }
+    
+    else if (counter <= 10) {
+        let userInput = inputEl.value
+        
+        // make new li element
+        let newLiEl = document.createElement("li")
+        //set innerHTML of new Li to value
+        newLiEl.innerHTML = userInput
+        // ADD IT ALL
+        listEl.appendChild(newLiEl);
+        inputEl.value = " "  
+        counter++
+    }
+
+    })
+
+    clearButton.addEventListener("click", function(){
+        list.innerHTML = ""
+        inputEl.value = ""
+        counter = 0
+    })
+
+
+</script>
+
+</body>
+</html>
