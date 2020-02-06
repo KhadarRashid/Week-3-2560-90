@@ -118,6 +118,7 @@
 		let selects = document.getElementsByClassName("selected")
 		while(selects[0]) {
 			selects[0].parentNode.removeChild(selects[0]) // StackOverflow: https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
+			studentCount.innerHTML = studentList.children.length
 		}
 	}
 </script>
